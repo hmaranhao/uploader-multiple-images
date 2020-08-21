@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './app.css'
 import ManagementFilesModal from './managementFilesModal';
+import { Avatar } from '@material-ui/core';
 
 function App() {
   const inputFileRef = React.createRef()
@@ -34,7 +35,9 @@ function App() {
   return (
     <div className="card">
       <div className="images-container">
-
+        {(files || []).map(file => {
+          return <Avatar  src={file.urlFake} key={file.urlFake} alt={file.name} />
+        })}        
       </div>
       <footer>
         <input
@@ -53,6 +56,7 @@ function App() {
         <ManagementFilesModal 
           onHide={() => setManagementFilesModal({ open: false })}
           data={managementFilesModal?.data}
+          setFiles={setFiles}
         />
       }
     </div>

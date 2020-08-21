@@ -9,6 +9,9 @@
   width: 100%;
   height: 88%;
   overflow-y: auto;
+  padding: 5%;
+  display: flex;
+  
 }
 
 footer {
